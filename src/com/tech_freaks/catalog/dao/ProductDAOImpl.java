@@ -10,7 +10,9 @@ import com.tech_freaks.catalog.model.Product;
 public class ProductDAOImpl extends AbstractDAO<Product> implements ProductDAO {
 	
 	
-	//private static final Logger logger = LoggerFactory.getLogger(PersonDAOImpl.class);
+	/**
+	 * Fetches all the product from the PRODUCT table
+	 */
 	@Override
 	public List<Product> getAllProducts() {
 		Session session = getSession();
@@ -18,16 +20,25 @@ public class ProductDAOImpl extends AbstractDAO<Product> implements ProductDAO {
         return productList;
 	}
 	
+	/**
+	 * Fetches product based on the primary key productId
+	 */
 	@Override
 	public Product findById(Integer id) {
 		return (Product) getSession().get(Product.class, id);
 	}
 	
+	/**
+	 * Inserts a new record in the product table.
+	 */
 	@Override
 	public Integer insert(Product product) {
 		return persist(product);
 	}
 	
+	/**
+	 * Loads the product using the primary key and then removes it from the database.
+	 */
 	@Override
 	public boolean remove(Integer id)  {
 		boolean deleted = false;
