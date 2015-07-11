@@ -14,10 +14,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDAO productDAO;
 	
-	public void setProductDao(ProductDAO productDAO) {
-		this.productDAO = productDAO;
-	}
-
+	
 	@Override
 	@Transactional
 	public List<Product> listProducts() {
